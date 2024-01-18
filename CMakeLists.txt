@@ -58,20 +58,20 @@ include_directories(
 link_directories(./libhesai/PtcClient/lib)
 link_directories(${Boost_LIBRARY_DIRS})
 
-add_executable(sample
-  test/test.cc
-)
+# add_executable(sample
+#   test/test.cc
+# )
 
-target_link_libraries(sample
-  ${Boost_LIBRARIES}
-  source_lib
-  container_lib
-  ptcClient_lib
-  ptcParser_lib
-  log_lib
-  # ${PCL_LIBRARIES}  
-  ${OPENSSL_LIBRARIES}
-)
+# target_link_libraries(sample
+#   ${Boost_LIBRARIES}
+#   source_lib
+#   container_lib
+#   ptcClient_lib
+#   ptcParser_lib
+#   log_lib
+#   # ${PCL_LIBRARIES}  
+#   ${OPENSSL_LIBRARIES}
+# )
 
 # add_library(libhesai
 #     driver/hesai_lidar_sdk.hpp
@@ -98,19 +98,19 @@ if(${CUDA_FOUND})
   file(GLOB CURRENT_SOURCES  *.cpp *.cu)
   source_group("Include" FILES ${CURRENT_HEADERS}) 
   source_group("Source" FILES ${CURRENT_SOURCES}) 
-  CUDA_ADD_EXECUTABLE(sample_gpu ${CURRENT_HEADERS} ${CURRENT_SOURCES} 
-  ./test/test.cu
-  ./libhesai/UdpParserGpu/src/buffer.cu)
-  target_link_libraries(sample_gpu
-  ${Boost_LIBRARIES}
-  source_lib
-  container_lib
-  ptcClient_lib
-  log_lib
-  ptcParser_lib
-  ${OPENSSL_LIBRARIES}
+  # CUDA_ADD_EXECUTABLE(sample_gpu ${CURRENT_HEADERS} ${CURRENT_SOURCES} 
+  # ./test/test.cu
+  # ./libhesai/UdpParserGpu/src/buffer.cu)
+  # target_link_libraries(sample_gpu
+  # ${Boost_LIBRARIES}
+  # source_lib
+  # container_lib
+  # ptcClient_lib
+  # log_lib
+  # ptcParser_lib
+  # ${OPENSSL_LIBRARIES}
   # ${PCL_LIBRARIES} 
-)
+  # )
 else(${CUDA_FOUND})
 	MESSAGE(STATUS "cuda not found!")
 endif(${CUDA_FOUND})
